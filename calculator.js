@@ -76,7 +76,7 @@ var performOperation = (clickObj) => {
             evaluateStrArr.push('-');
         break;
 
-        case 'X':
+        case 'x':
             pendingVal = displayVal;
             displayVal = '0';
             displayValElement.innerText = displayVal;
@@ -126,8 +126,9 @@ btnAC.onclick = () => {
     displayValElement.innerText = displayVal;
 }
 
-btnDecimal.onClick = () => {
-    if(!displayVal.includes('.'));
-    displayVal += '.';
-    displayValElement.innerText = displayVal;
+btnDecimal.onclick = () => {
+    if(!displayVal.includes('.'))
+        displayVal += '.';
+        displayValElement.innerText = displayVal;
 } 
+
