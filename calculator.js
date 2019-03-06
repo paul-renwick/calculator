@@ -50,26 +50,77 @@ var opBtns = document.getElementsByClassName('calc-btn-op');
 var updateDisplayVal = (clickObj) => {
     var btnText = clickObj.target.innerText;
 
+    if(displayVal === '0')
+        displayVal = '';
+
     displayVal += btnText;
     displayValElement.innerText = displayVal;
 }
 
+var performOperation = (clickObj) => {
+    var operator = clickObj.target.innerText;
+
+    switch (operator) {
+        case '+':
+            pendingVal = displayVal;
+            displayVal = '0';
+            displayValElement.innerText = displayVal;
+            evaluateStrArr.push(pendingVal);
+            evaluateStrArr.push('+');
+        break;
+        case '-':
+            pendingVal = displayVal;
+            displayVal = '0';
+            displayValElement.innerText = displayVal;
+            evaluateStrArr.push(pendingVal);
+            evaluateStrArr.push('-');
+        break;
+
+        case 'X':
+            pendingVal = displayVal;
+            displayVal = '0';
+            displayValElement.innerText = displayVal;
+            evaluateStrArr.push(pendingVal);
+            evaluateStrArr.push('*');
+        break;
+
+        case '÷':
+            pendingVal = displayVal;
+            displayVal = '0';
+            displayValElement.innerText = displayVal;
+            evaluateStrArr.push(pendingVal);
+            evaluateStrArr.push('/');
+        break;
+
+        case '=':
+            evaluateStrArr.push(displayVal);
+            var evaluation = eval(evaluateStrArr.join(' '));
+            displayVal = evaluation + '';
+            displayValElement.innerText = displayVal;
+            evaluateStrArr = [];
+        break;
+        
+        default:
+        break;
+    }
+}
+
 
 for (let i = 0; i < numBtns.length; i++) {
-    numBtns[i].addEventListener('click', updateDisplayVal);
+    numBtns[i].addEventListener('click', updateDisplayVal, false);
 }
 
 for (let i = 0; i < opBtns.length; i++) {
-    opBtns[i].addEventListener('click', updateDisplayVal);
+    opBtns[i].addEventListener('click', performOperation, false);
 }
 
 btnCE.onclick = () => {
-    displayVal = '';
+    displayVal = '0';
     displayValElement.innerText = displayVal;
 }
 
 btnAC.onclick = () => {
-    displayVal = '';
+    displayVal = '0';
     pendingVal = undefined;
     evaluateStrArr = [];
     displayValElement.innerText = displayVal;
