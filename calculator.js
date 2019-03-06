@@ -97,11 +97,11 @@ var performOperation = (clickObj) => {
 
 
 for (let i = 0; i < numBtns.length; i++) {
-    numBtns[i].addEventListener('click', updateDisplayVal, false);
+    numBtns[i].addEventListener('click', updateDisplayVal);
 }
 
 for (let i = 0; i < opBtns.length; i++) {
-    opBtns[i].addEventListener('click', performOperation, false);
+    opBtns[i].addEventListener('click', performOperation);
 }
 
 btnCE.onclick = () => {
