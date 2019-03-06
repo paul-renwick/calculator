@@ -1,4 +1,3 @@
-// //Set each button equal to a javascript variable, syntax = var oneBtn = document.getElementById('calc-one');
 // //Set decimal button 
 // //Set clear buttons
 // //Set displayValElement, as in, the display window 
@@ -20,16 +19,7 @@
 // }
 
 //Sets variables to use in later functions, associates the HTML elements with manipulable variables for JS
-var btnOne = document.getElementById('calc-one');
-var btnTwo = document.getElementById('calc-two');
-var btnThree = document.getElementById('calc-three');
-var btnFour = document.getElementById('calc-four');
-var btnFive = document.getElementById('calc-five');
-var btnSix = document.getElementById('calc-six');
-var btnSeven = document.getElementById('calc-seven');
-var btnEight = document.getElementById('calc-eight');
-var btnNine = document.getElementById('calc-nine');
-var btnZero = document.getElementById('calc-zero');
+var btnPercent = document.getElementById('calc-percent');
 var btnDecimal = document.getElementById('calc-decimal');
 var btnAC = document.getElementById('calc-ac');
 var btnCE = document.getElementById('calc-ce');
@@ -131,4 +121,11 @@ btnDecimal.onclick = () => {
         displayVal += '.';
         displayValElement.innerText = displayVal;
 } 
+
+var owenWow = document.getElementById('owenWow');
+
+btnPercent.addEventListener('click', () => {
+    owenWow.play();
+}
+);
 
